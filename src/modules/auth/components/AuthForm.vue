@@ -1,0 +1,7 @@
+<template>
+  <form action="">
+    <input type="text" />
+    <input type="text" />
+    <button></button>
+  </form>
+</template>
