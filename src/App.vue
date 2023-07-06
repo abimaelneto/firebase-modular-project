@@ -1,6 +1,22 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "./components/HelloWorld.vue";
+import { onMounted } from "vue";
+import { useStore } from "./composables/useStore";
+
+const { content } = useStore();
+const { auth } = content;
+onMounted(() => {
+  const user = JSON.parse(
+    localStorage.getItem(
+      "firebase:authUser:AIzaSyD0ArpOC15GJ7Tg0UwnqopYQ64gfK1kxBY:[DEFAULT]"
+    )
+  );
+
+  if (user) {
+    auth.setUser(user);
+  }
+});
 </script>
 
 <template>
@@ -12,15 +28,6 @@ import HelloWorld from "./components/HelloWorld.vue";
       width="125"
       height="125"
     />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
   </header>
 
   <RouterView />

@@ -12,6 +12,7 @@ const password = ref("");
 
 async function handleSignIn() {
   const result = await auth.signIn(email.value, password.value);
+
   if (!result) {
     alert("email ou senha incorretos");
     return;
