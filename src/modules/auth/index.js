@@ -5,7 +5,7 @@ import { routes } from "./router";
 
 //registrar a store local
 const store = useStore();
-store.registerModule(moduleName, localStore);
+store.registerModule("auth", authStore);
 
 //registrar as rotas locais
 routes.forEach((route) => {
